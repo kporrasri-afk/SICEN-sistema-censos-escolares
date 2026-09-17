@@ -4,7 +4,7 @@
 | Campo | Detalle |
 |---|---|
 | **Proyecto** | SOFT-11C1 Proyecto Integrador 1 |
-| **Estudiante** | [TU NOMBRE COMPLETO] |
+| **Estudiante** | Krystell Porras Rivera |
 | **Período** | 2026-C3 |
 | **Versión** | 1.0 |
 
