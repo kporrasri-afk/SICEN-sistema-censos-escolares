@@ -4,12 +4,10 @@
 | Campo | Detalle |
 |---|---|
 | **Proyecto** | SOFT-11C1 Proyecto Integrador 1 |
-| **Estudiante** | [TU NOMBRE COMPLETO] |
+| **Estudiante** | Krystell Porras Rivera |
 | **Institución** | Universidad CENFOTEC |
 | **Docente** | Verónica Mora Lezcano |
 | **Período** | 2026-C3 |
-| **Fecha** | 29 de setiembre de 2026 |
-| **Versión** | 1.0 |
 
 ---
 
@@ -63,7 +61,7 @@ El sistema utilizará **MongoDB Atlas** como base de datos NoSQL en la nube. Per
 
 ### 2.1 Diagrama de casos de uso
 
-> 📊 **Ver en Figma:** [Abrir diagrama de casos de uso](https://www.figma.com/design/ZbpgIWFL3CoPA3YW3Bd1xP/SICEN-%E2%80%94-Wireframes-y-Prototipos?page-id=6%3A2&node-id=6-3)
+> **Ver en Figma:** [Abrir diagrama de casos de uso](https://www.figma.com/design/ZbpgIWFL3CoPA3YW3Bd1xP/SICEN-%E2%80%94-Wireframes-y-Prototipos?page-id=6%3A2&node-id=6-3)
 
 **Actores:** Jefatura DAE · Técnico DAE · Director del Centro Educativo · Supervisor
 
@@ -78,7 +76,7 @@ El sistema utilizará **MongoDB Atlas** como base de datos NoSQL en la nube. Per
 
 ### 3.1 Wireframes y prototipos
 
-> 🎨 **Archivo Figma:** [SICEN — Wireframes y Prototipos](https://www.figma.com/design/ZbpgIWFL3CoPA3YW3Bd1xP/SICEN-%E2%80%94-Wireframes-y-Prototipos?node-id=4-2)
+> **Archivo Figma:** [SICEN — Wireframes y Prototipos](https://www.figma.com/design/ZbpgIWFL3CoPA3YW3Bd1xP/SICEN-%E2%80%94-Wireframes-y-Prototipos?node-id=4-2)
 
 Todos los wireframes están disponibles en el archivo de Figma. Cada link dirige directamente al frame correspondiente:
 
