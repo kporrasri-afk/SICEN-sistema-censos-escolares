@@ -4,9 +4,8 @@
 | Campo | Detalle |
 |---|---|
 | **Proyecto** | SOFT-11C1 Proyecto Integrador 1 |
-| **Estudiante** | [TU NOMBRE COMPLETO] |
+| **Estudiante** | Krystell Porras Rivera |
 | **Período** | 2026-C3 |
-| **Versión** | 2.0 — Ajustada con retroalimentación: RFs eliminados del alcance individual, suposiciones corregidas, Módulo 6 removido. |
 
 ---
 
