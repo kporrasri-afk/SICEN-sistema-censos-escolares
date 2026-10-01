@@ -46,7 +46,7 @@
 
 ---
 
-## RFs excluidos del alcance (versión individual — retroalimentación docente)
+## RFs excluidos del alcance 
 
 | ID original | Descripción | Motivo de exclusión |
 |---|---|---|
