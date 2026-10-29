@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Censo de Matrícula Inicial 2025 — SICEN</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body class="censo-page">
+
+<!-- ── Topbar ── -->
+<nav class="censo-topbar">
+  <a href="dashboard-director.html" class="censo-topbar__brand">
+    <div class="censo-topbar__icon">
+      <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+        <rect x="1" y="8.5" width="3.5" height="7" rx="0.7" fill="white"/>
+        <rect x="6.5" y="5" width="3.5" height="10.5" rx="0.7" fill="white"/>
+        <rect x="12" y="1.5" width="3.5" height="14" rx="0.7" fill="white"/>
+      </svg>
+    </div>
+    <div>
+      <div class="censo-topbar__name">SICEN</div>
+      <div class="censo-topbar__sub">Sistema de Censos Escolares</div>
+    </div>
+  </a>
+  <div class="censo-topbar__right">
+    <a href="#" class="censo-topbar__help">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+        <circle cx="7.5" cy="7.5" r="6.5" stroke="rgba(255,255,255,.5)" stroke-width="1.2"/>
+        <path d="M5.8 5.8a1.7 1.7 0 113.1 1c-.4.4-1.4.8-1.4 1.7" stroke="rgba(255,255,255,.5)" stroke-width="1.2" stroke-linecap="round"/>
+        <circle cx="7.5" cy="11" r=".7" fill="rgba(255,255,255,.5)"/>
+      </svg>
+      Ayuda
+    </a>
+    <div class="censo-topbar__user">
+      <div class="censo-topbar__avatar" data-sesion-avatar style="background:#854F0B">CA</div>
+      <div>
+        <div class="censo-topbar__uname" data-sesion-nombre>Carlos Alvarado</div>
+        <div class="censo-topbar__urole" data-sesion-rol>Director CE</div>
+      </div>
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="margin-left:4px">
+        <path d="M2 3.5l3 3 3-3" stroke="rgba(255,255,255,.4)" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Contenido ── -->
+<main class="censo-main" style="margin-top:calc(var(--topbar-h) + 1rem)">
+
+  <!-- Breadcrumb -->
+  <div class="censo-breadcrumb">
+    <a href="dashboard-director.html">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+        <path d="M8.5 2L4 6.5l4.5 4.5" stroke="#6b7280" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Mis censos
+    </a>
+    <span class="censo-breadcrumb__sep">/</span>
+    <span class="censo-breadcrumb__current">Matrícula Inicial 2025</span>
+  </div>
+
+  <!-- Header -->
+  <div class="censo-header-row">
+    <div>
+      <span class="status-badge status-badge--proceso" id="statusBadge">En proceso</span>
+      <h1>Censo de Matrícula Inicial 2025</h1>
+      <p>Completá la información correspondiente a tu centro educativo.</p>
+    </div>
+    <div class="date-limit-box">
+      <div class="date-limit-box__label">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <rect x=".75" y="1.75" width="10.5" height="9.5" rx="1.5" stroke="#92400e" stroke-width="1.2"/>
+          <path d="M4 .75v2M8 .75v2M.75 4.75h10.5" stroke="#92400e" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        Fecha límite
+      </div>
+      <div class="date-limit-box__date">28 de marzo, 2025</div>
+    </div>
+  </div>
+
+  <!-- Stepper -->
+  <div class="stepper" id="stepper">
+    <div class="step step--active" id="step-1">
+      <div class="step__circle" id="sc1">1</div>
+      <div>
+        <div style="font-size:9px;color:var(--primary);font-weight:700;letter-spacing:.05em;text-transform:uppercase">Paso 1</div>
+        <div class="step__label">Datos generales</div>
+      </div>
+    </div>
+    <div class="step" id="step-2">
+      <div class="step__circle" id="sc2">2</div>
+      <div>
+        <div style="font-size:9px;color:#9ca3af;font-weight:700;letter-spacing:.05em;text-transform:uppercase">Paso 2</div>
+        <div class="step__label">Matrícula</div>
+      </div>
+    </div>
+    <div class="step" id="step-3">
+      <div class="step__circle" id="sc3">3</div>
+      <div>
+        <div style="font-size:9px;color:#9ca3af;font-weight:700;letter-spacing:.05em;text-transform:uppercase">Paso 3</div>
+        <div class="step__label">Personal</div>
+      </div>
+    </div>
+    <div class="step" id="step-4">
+      <div class="step__circle" id="sc4">4</div>
+      <div>
+        <div style="font-size:9px;color:#9ca3af;font-weight:700;letter-spacing:.05em;text-transform:uppercase">Paso 4</div>
+        <div class="step__label">Confirmación</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content grid -->
+  <div class="censo-content">
+
+    <!-- ── Formularios (izquierda) ── -->
+    <div>
+
+      <!-- PASO 1: Datos generales -->
+      <div id="form-step-1">
+        <div class="form-card">
+          <div class="form-card__header">
+            <div class="form-card__icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <rect x="2" y="2" width="14" height="14" rx="2" stroke="#185FA5" stroke-width="1.4"/>
+                <path d="M5 6h8M5 9h8M5 12h5" stroke="#185FA5" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <p class="form-card__title">Datos generales</p>
+              <p class="form-card__sub">Verificá la información registrada para el centro educativo.</p>
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="codigo">Código presupuestario</label>
+              <input class="form-input" id="codigo" type="text" value="4086" readonly style="background:#f9fafb;color:#6b7280"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="nombre-ce">Nombre del centro educativo</label>
+              <input class="form-input" id="nombre-ce" type="text" value="Escuela República de Chile" readonly style="background:#f9fafb;color:#6b7280"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="direccion">Dirección regional</label>
+              <select class="form-select" id="direccion">
+                <option selected>San José Central</option>
+                <option>San José Norte</option>
+                <option>Desamparados</option>
+                <option>Heredia</option>
+                <option>Alajuela</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="circuito">Circuito educativo</label>
+              <select class="form-select" id="circuito">
+                <option selected>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASO 2: Matrícula -->
+      <div id="form-step-2" style="display:none">
+        <div class="form-card">
+          <div class="form-card__header">
+            <div class="form-card__icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M9 1L2 4v5c0 5 3.5 8 7 9 3.5-1 7-4 7-9V4L9 1z" stroke="#185FA5" stroke-width="1.4"/>
+              </svg>
+            </div>
+            <div>
+              <p class="form-card__title">Matrícula del centro educativo</p>
+              <p class="form-card__sub">Actualizá la información correspondiente al inicio del año lectivo 2025.</p>
+            </div>
+          </div>
+
+          <div class="precargado-banner">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" style="flex-shrink:0;margin-top:1px">
+              <path d="M7.5 1L2 3.5v4c0 3 2 5.5 5.5 6.5C11 13 13 10.5 13 7.5v-4L7.5 1z" fill="#16a34a"/>
+            </svg>
+            <div>
+              <strong>Datos precargados</strong>
+              Cargamos algunos campos con la información de tu sistema anterior. Revisalos antes de continuar.
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="total-est">Total de estudiantes matriculados</label>
+              <div class="form-input--suffix" style="position:relative">
+                <input class="form-input" id="total-est" type="number" value="428" style="padding-right:80px"/>
+                <span class="input-suffix">estudiantes</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="grupos">Cantidad de grupos activos</label>
+              <div style="position:relative">
+                <input class="form-input" id="grupos" type="number" value="31" style="padding-right:60px"/>
+                <span class="input-suffix">grupos</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="modalidad">Modalidad educativa</label>
+              <select class="form-select" id="modalidad">
+                <option selected>Académica diurna</option>
+                <option>Académica nocturna</option>
+                <option>Técnica</option>
+                <option>Especial</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="dependencia">Tipo de dependencia</label>
+              <select class="form-select" id="dependencia">
+                <option selected>Pública</option>
+                <option>Privada</option>
+                <option>Privada subvencionada</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="nivel-section">
+            <p class="nivel-section__title">Distribución por nivel</p>
+            <p class="nivel-section__sub">Registrá la cantidad de estudiantes para cada nivel formativo.</p>
+            <div class="nivel-row">
+              <span class="nivel-row__num">01</span>
+              <span class="nivel-row__name">Primer año</span>
+              <div class="nivel-row__input-wrap">
+                <input type="number" value="142"/>
+                <span class="nivel-row__unit">estudiantes</span>
+              </div>
+            </div>
+            <div class="nivel-row">
+              <span class="nivel-row__num">02</span>
+              <span class="nivel-row__name">Segundo año</span>
+              <div class="nivel-row__input-wrap">
+                <input type="number" value="129"/>
+                <span class="nivel-row__unit">estudiantes</span>
+              </div>
+            </div>
+            <div class="nivel-row">
+              <span class="nivel-row__num">03</span>
+              <span class="nivel-row__name">Tercer año</span>
+              <div class="nivel-row__input-wrap">
+                <input type="number" value="147"/>
+                <span class="nivel-row__unit">estudiantes</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASO 3: Personal -->
+      <div id="form-step-3" style="display:none">
+        <div class="form-card">
+          <div class="form-card__header">
+            <div class="form-card__icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <circle cx="7" cy="5" r="3" stroke="#185FA5" stroke-width="1.4"/>
+                <path d="M1 15c0-3.3 2.7-6 6-6h1" stroke="#185FA5" stroke-width="1.4" stroke-linecap="round"/>
+                <path d="M14 11v4M12 13h4" stroke="#185FA5" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <p class="form-card__title">Personal del centro</p>
+              <p class="form-card__sub">Registrá la cantidad de personas que laboran actualmente en el centro.</p>
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="p-docente">Personal docente</label>
+              <div style="position:relative">
+                <input class="form-input" id="p-docente" type="number" value="32" style="padding-right:68px"/>
+                <span class="input-suffix">personas</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="p-admin">Personal administrativo</label>
+              <div style="position:relative">
+                <input class="form-input" id="p-admin" type="number" value="8" style="padding-right:68px"/>
+                <span class="input-suffix">personas</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="p-apoyo">Personal de apoyo</label>
+              <div style="position:relative">
+                <input class="form-input" id="p-apoyo" type="number" value="6" style="padding-right:68px"/>
+                <span class="input-suffix">personas</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="jornada">Jornadas activas</label>
+              <select class="form-select" id="jornada">
+                <option selected>Diurna</option>
+                <option>Nocturna</option>
+                <option>Diurna y nocturna</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASO 4: Confirmación -->
+      <div id="form-step-4" style="display:none">
+        <div class="form-card">
+          <div class="form-card__header">
+            <div class="form-card__icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M3 9l4 4 8-8" stroke="#185FA5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <p class="form-card__title">Revisión y confirmación</p>
+              <p class="form-card__sub">Revisá el resumen antes de enviar el censo a DAE.</p>
+            </div>
+          </div>
+
+          <div class="resumen-box">
+            <div class="resumen-box__label">Datos del centro</div>
+            <div class="resumen-box__value">Escuela República de Chile</div>
+            <div class="resumen-box__sub">Código 4086</div>
+          </div>
+          <div class="resumen-box">
+            <div class="resumen-box__label">Matrícula reportada</div>
+            <div class="resumen-box__value">428 estudiantes</div>
+            <div class="resumen-box__sub">31 grupos activos</div>
+          </div>
+          <div class="resumen-box">
+            <div class="resumen-box__label">Personal total</div>
+            <div class="resumen-box__value">46 personas</div>
+            <div class="resumen-box__sub">Docente, administrativo y apoyo</div>
+          </div>
+
+          <div class="confirm-check">
+            <input type="checkbox" id="confirmar" />
+            <label class="confirm-check__label" for="confirmar">
+              <strong>Confirmo que la información es correcta</strong>
+              Declaro que los datos sometidos corresponden a los registros oficiales del centro educativo.
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botones de acción -->
+      <div class="censo-actions">
+        <div class="censo-actions__left">
+          <button class="btn-borrador" onclick="guardarBorrador()">Guardar borrador</button>
+          <span class="censo-actions__saved" id="savedMsg">Último guardado: hoy 10:38 a. m.</span>
+        </div>
+        <button class="btn-continuar" id="btnContinuar" onclick="siguientePaso()">
+          Guardar y continuar
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+    </div><!-- /izquierda -->
+
+    <!-- ── Sidebar (derecha) ── -->
+    <aside>
+      <div class="sidebar-card">
+        <div class="sidebar-card__icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <rect x="2" y="2" width="14" height="14" rx="2" stroke="#185FA5" stroke-width="1.3"/>
+            <path d="M5 6h8M5 9h8M5 12h5" stroke="#185FA5" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="sidebar-card__title">Instructivo del censo</p>
+        <p class="sidebar-card__sub">Consultá la guía oficial para completar correctamente cada sección.</p>
+        <a href="#" class="sidebar-card__link">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M6 1v7M3 6l3 3 3-3" stroke="var(--primary)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1 10h10" stroke="var(--primary)" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+          Descargar PDF
+        </a>
+      </div>
+
+      <div class="sidebar-card sidebar-card--dark">
+        <div class="sidebar-card__icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <circle cx="9" cy="9" r="7" stroke="rgba(255,255,255,.5)" stroke-width="1.3"/>
+            <path d="M7.3 7.3a1.7 1.7 0 113.1 1c-.4.4-1.4.8-1.4 1.7" stroke="rgba(255,255,255,.5)" stroke-width="1.3" stroke-linecap="round"/>
+            <circle cx="9" cy="13" r=".8" fill="rgba(255,255,255,.5)"/>
+          </svg>
+        </div>
+        <p class="sidebar-card__title">¿Tenés alguna duda?</p>
+        <p class="sidebar-card__sub">Tu técnico DAE asignado puede orientarte durante el proceso.</p>
+        <p class="sidebar-card__contact-name">Ana Lucía Vargas</p>
+        <p class="sidebar-card__contact-email">avargas@mep.go.cr</p>
+      </div>
+    </aside>
+
+  </div><!-- /censo-content -->
+</main>
+
+<script src="../js/auth.js"></script>
+<script>
+  var pasoActual = 1;
+
+  function actualizarStepper(paso) {
+    for (var i = 1; i <= 4; i++) {
+      var stepEl = document.getElementById('step-' + i);
+      var circle = document.getElementById('sc' + i);
+      var labelEls = stepEl.querySelectorAll('div > div');
+
+      stepEl.classList.remove('step--active', 'step--done');
+      if (i < paso) {
+        stepEl.classList.add('step--done');
+        circle.innerHTML = '<svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5L8.5 2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        labelEls[0].style.color = 'var(--primary)';
+      } else if (i === paso) {
+        stepEl.classList.add('step--active');
+        circle.textContent = i;
+        labelEls[0].style.color = 'var(--primary)';
+      } else {
+        circle.textContent = i;
+        labelEls[0].style.color = '#9ca3af';
+      }
+    }
+    /* Conectores */
+    for (var j = 1; j <= 3; j++) {
+      var el = document.getElementById('step-' + j);
+      if (j < paso) {
+        el.style.setProperty('--after-bg', 'var(--primary)');
+      }
+    }
+  }
+
+  function mostrarPaso(paso) {
+    for (var i = 1; i <= 4; i++) {
+      document.getElementById('form-step-' + i).style.display = (i === paso) ? '' : 'none';
+    }
+    var btn = document.getElementById('btnContinuar');
+    if (paso === 4) {
+      btn.textContent = '';
+      btn.className = 'btn-enviar';
+      btn.innerHTML = 'Enviar censo <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      btn.onclick = enviarCenso;
+    } else {
+      btn.className = 'btn-continuar';
+      btn.innerHTML = 'Guardar y continuar <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      btn.onclick = siguientePaso;
+    }
+    actualizarStepper(paso);
+  }
+
+  function siguientePaso() {
+    if (pasoActual < 4) {
+      pasoActual++;
+      mostrarPaso(pasoActual);
+      window.scrollTo(0,0);
+    }
+  }
+
+  function guardarBorrador() {
+    var now = new Date();
+    var h = now.getHours(), m = now.getMinutes().toString().padStart(2,'0');
+    var ampm = h >= 12 ? 'p. m.' : 'a. m.';
+    h = h % 12 || 12;
+    document.getElementById('savedMsg').textContent = 'Último guardado: hoy ' + h + ':' + m + ' ' + ampm;
+  }
+
+  function enviarCenso() {
+    var chk = document.getElementById('confirmar');
+    if (!chk || !chk.checked) {
+      alert('Marcá la casilla de confirmación antes de enviar.');
+      return;
+    }
+    document.getElementById('statusBadge').textContent = 'Enviado';
+    document.getElementById('statusBadge').className = 'status-badge status-badge--enviado';
+    alert('✅ Censo enviado correctamente a la DAE.');
+    window.location.href = 'dashboard-director.html';
+  }
+
+  /* Poblar sesión */
+  (function() {
+    var s = window.SICEN && window.SICEN.obtenerSesion ? window.SICEN.obtenerSesion() : null;
+    if (s) {
+      var nombre = document.querySelector('[data-sesion-nombre]');
+      var avatar = document.querySelector('[data-sesion-avatar]');
+      var rol    = document.querySelector('[data-sesion-rol]');
+      if (nombre) nombre.textContent = s.nombre;
+      if (avatar) { avatar.textContent = s.initials || s.nombre[0]; if (s.color) avatar.style.background = s.color; }
+      if (rol) { var roles = {director_ce:'Director CE',tecnico_dae:'Técnico DAE',jefatura_dae:'Jefatura DAE'}; rol.textContent = roles[s.rol] || s.rol; }
+    }
+  })();
+
+  mostrarPaso(1);
+</script>
+</body>
+</html>

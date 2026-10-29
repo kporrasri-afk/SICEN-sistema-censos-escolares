@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Revisión de Censo — SICEN</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body class="censo-page">
+
+<nav class="censo-topbar">
+  <a href="dashboard-tecnico.html" class="censo-topbar__brand">
+    <div class="censo-topbar__icon">
+      <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+        <rect x="1" y="8.5" width="3.5" height="7" rx="0.7" fill="white"/>
+        <rect x="6.5" y="5" width="3.5" height="10.5" rx="0.7" fill="white"/>
+        <rect x="12" y="1.5" width="3.5" height="14" rx="0.7" fill="white"/>
+      </svg>
+    </div>
+    <div>
+      <div class="censo-topbar__name">SICEN</div>
+      <div class="censo-topbar__sub">Sistema de Censos Escolares</div>
+    </div>
+  </a>
+  <div class="censo-topbar__right">
+    <a href="#" class="censo-topbar__help">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+        <circle cx="7.5" cy="7.5" r="6.5" stroke="rgba(255,255,255,.5)" stroke-width="1.2"/>
+        <path d="M5.8 5.8a1.7 1.7 0 113.1 1c-.4.4-1.4.8-1.4 1.7" stroke="rgba(255,255,255,.5)" stroke-width="1.2" stroke-linecap="round"/>
+        <circle cx="7.5" cy="11" r=".7" fill="rgba(255,255,255,.5)"/>
+      </svg>
+      Ayuda
+    </a>
+    <div class="censo-topbar__user">
+      <div class="censo-topbar__avatar" data-sesion-avatar style="background:#0F6E56">AV</div>
+      <div>
+        <div class="censo-topbar__uname" data-sesion-nombre>Ana Lucía Vargas</div>
+        <div class="censo-topbar__urole" data-sesion-rol>Técnico DAE</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="censo-main" style="margin-top:calc(var(--topbar-h) + 1rem)">
+
+  <div class="censo-breadcrumb">
+    <a href="dashboard-tecnico.html">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+        <path d="M8.5 2L4 6.5l4.5 4.5" stroke="#6b7280" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Formularios
+    </a>
+    <span class="censo-breadcrumb__sep">/</span>
+    <span class="censo-breadcrumb__current">Revisión — Escuela República de Chile</span>
+  </div>
+
+  <div class="censo-header-row">
+    <div>
+      <span class="status-badge status-badge--proceso">En revisión</span>
+      <h1>Censo de Matrícula Inicial 2025</h1>
+      <p>Revisá y validá los datos enviados por el centro educativo.</p>
+    </div>
+    <div class="date-limit-box">
+      <div class="date-limit-box__label">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <rect x=".75" y="1.75" width="10.5" height="9.5" rx="1.5" stroke="#92400e" stroke-width="1.2"/>
+          <path d="M4 .75v2M8 .75v2M.75 4.75h10.5" stroke="#92400e" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        Recibido
+      </div>
+      <div class="date-limit-box__date">15 de marzo, 2025</div>
+    </div>
+  </div>
+
+  <!-- Tabs de revisión -->
+  <div class="revision-tabs" id="revTabs">
+    <button class="rev-tab rev-tab--active" onclick="mostrarSeccion('datos',this)">Datos generales</button>
+    <button class="rev-tab" onclick="mostrarSeccion('matricula',this)">Matrícula</button>
+    <button class="rev-tab" onclick="mostrarSeccion('personal',this)">Personal</button>
+    <button class="rev-tab" onclick="mostrarSeccion('observaciones',this)">Observaciones</button>
+  </div>
+
+  <div class="censo-content">
+    <div>
+
+      <!-- Sección: Datos generales -->
+      <div id="sec-datos">
+        <div class="form-card">
+          <div class="form-card__header">
+            <div class="form-card__icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <rect x="2" y="2" width="14" height="14" rx="2" stroke="#185FA5" stroke-width="1.4"/>
+                <path d="M5 6h8M5 9h8M5 12h5" stroke="#185FA5" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <p class="form-card__title">Datos del centro educativo</p>
+              <p class="form-card__sub">Información reportada por el director del centro.</p>
+            </div>
+          </div>
+          <div class="revision-field-list">
+            <div class="rev-field"><span class="rev-field__label">Código presupuestario</span><span class="rev-field__value">4086</span></div>
+            <div class="rev-field"><span class="rev-field__label">Nombre del centro</span><span class="rev-field__value">Escuela República de Chile</span></div>
+            <div class="rev-field"><span class="rev-field__label">Dirección regional</span><span class="rev-field__value">San José Central</span></div>
+            <div class="rev-field"><span class="rev-field__label">Circuito educativo</span><span class="rev-field__value">01</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección: Matrícula -->
+      <div id="sec-matricula" style="display:none">
+        <div class="form-card">
+          <div class="form-card__header">
+            <div class="form-card__icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M9 1L2 4v5c0 5 3.5 8 7 9 3.5-1 7-4 7-9V4L9 1z" stroke="#185FA5" stroke-width="1.4"/>
+              </svg>
+            </div>
+            <div>
+              <p class="form-card__title">Matrícula reportada</p>
+              <p class="form-card__sub">Datos de estudiantes y grupos del centro.</p>
+            </div>
+          </div>
+          <div class="revision-field-list">
+            <div class="rev-field"><span class="rev-field__label">Total estudiantes</span><span class="rev-field__value">428</span></div>
+            <div class="rev-field"><span class="rev-field__label">Grupos activos</span><span class="rev-field__value">31</span></div>
+            <div class="rev-field"><span class="rev-field__label">Modalidad educativa</span><span class="rev-field__value">Académica diurna</span></div>
+            <div class="rev-field"><span class="rev-field__label">Tipo de dependencia</span><span class="rev-field__value">Pública</span></div>
+          </div>
+          <div class="nivel-section" style="margin-top:16px">
+            <p class="nivel-section__title">Distribución por nivel</p>
+            <div class="rev-field"><span class="rev-field__label">Primer año</span><span class="rev-field__value">142 estudiantes</span></div>
+            <div class="rev-field"><span class="rev-field__label">Segundo año</span><span class="rev-field__value">129 estudiantes</span></div>
+            <div class="rev-field"><span class="rev-field__label">Tercer año</span><span class="rev-field__value">147 estudiantes</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección: Personal -->
+      <div id="sec-personal" style="display:none">
+        <div class="form-card">
+          <div class="form-card__header">
+            <div class="form-card__icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <circle cx="7" cy="5" r="3" stroke="#185FA5" stroke-width="1.4"/>
+                <path d="M1 15c0-3.3 2.7-6 6-6h1" stroke="#185FA5" stroke-width="1.4" stroke-linecap="round"/>
+                <path d="M14 11v4M12 13h4" stroke="#185FA5" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <p class="form-card__title">Personal del centro</p>
+              <p class="form-card__sub">Cantidad de personal reportado.</p>
+            </div>
+          </div>
+          <div class="revision-field-list">
+            <div class="rev-field"><span class="rev-field__label">Personal docente</span><span class="rev-field__value">32 personas</span></div>
+            <div class="rev-field"><span class="rev-field__label">Personal administrativo</span><span class="rev-field__value">8 personas</span></div>
+            <div class="rev-field"><span class="rev-field__label">Personal de apoyo</span><span class="rev-field__value">6 personas</span></div>
+            <div class="rev-field"><span class="rev-field__label">Jornadas activas</span><span class="rev-field__value">Diurna</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección: Observaciones -->
+      <div id="sec-observaciones" style="display:none">
+        <div class="form-card">
+          <div class="form-card__header">
+            <div class="form-card__icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M3 3h12v10H3z" stroke="#185FA5" stroke-width="1.4" rx="1.5"/>
+                <path d="M3 13l3-3h9" stroke="#185FA5" stroke-width="1.4"/>
+              </svg>
+            </div>
+            <div>
+              <p class="form-card__title">Observaciones de revisión</p>
+              <p class="form-card__sub">Agregá comentarios o solicitudes de corrección al director.</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="obs">Observaciones</label>
+            <textarea class="form-input" id="obs" rows="5" placeholder="Escribí las observaciones o correcciones necesarias..." style="resize:vertical;font-family:var(--font)"></textarea>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:4px">
+            <button class="btn-borrador" onclick="solicitarCorrecion()">Solicitar corrección</button>
+            <button class="btn-continuar" onclick="aprobarCenso()">
+              Aprobar censo
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Acciones (visible en todas las secciones excepto observaciones) -->
+      <div class="censo-actions" id="accionesNav" style="justify-content:flex-end">
+        <button class="btn-continuar" onclick="siguienteTab()">
+          Siguiente sección
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside>
+      <div class="sidebar-card">
+        <div class="sidebar-card__icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <circle cx="7" cy="5" r="3" stroke="#185FA5" stroke-width="1.3"/>
+            <path d="M1 15c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#185FA5" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="sidebar-card__title">Director del centro</p>
+        <p class="sidebar-card__sub">Responsable de la información enviada.</p>
+        <p class="sidebar-card__contact-name">Carlos Alvarado</p>
+        <p style="font-size:.73rem;color:#6b7280;margin-top:2px">calvarado@mep.go.cr</p>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card__icon" style="background:#f0fdf4">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M3 9l4 4 8-8" stroke="#16a34a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="sidebar-card__title">Progreso de revisión</p>
+        <div class="rev-progress-row"><span>Datos generales</span><span class="rev-badge-ok">✓</span></div>
+        <div class="rev-progress-row"><span>Matrícula</span><span class="rev-badge-ok">✓</span></div>
+        <div class="rev-progress-row"><span>Personal</span><span class="rev-badge-pend">Pendiente</span></div>
+        <div class="rev-progress-row"><span>Observaciones</span><span class="rev-badge-pend">Pendiente</span></div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<script src="../js/auth.js"></script>
+<script>
+  var tabActual = 0;
+  var tabs = ['datos','matricula','personal','observaciones'];
+
+  function mostrarSeccion(sec, btn) {
+    tabs.forEach(function(t){ document.getElementById('sec-'+t).style.display='none'; });
+    document.getElementById('sec-'+sec).style.display='';
+    document.querySelectorAll('.rev-tab').forEach(function(b){ b.classList.remove('rev-tab--active'); });
+    if(btn) btn.classList.add('rev-tab--active');
+    tabActual = tabs.indexOf(sec);
+    document.getElementById('accionesNav').style.display = sec==='observaciones' ? 'none' : '';
+  }
+
+  function siguienteTab() {
+    if (tabActual < tabs.length - 1) {
+      tabActual++;
+      var btns = document.querySelectorAll('.rev-tab');
+      mostrarSeccion(tabs[tabActual], btns[tabActual]);
+    }
+  }
+
+  function solicitarCorrecion() {
+    var obs = document.getElementById('obs').value.trim();
+    if (!obs) { alert('Escribí las observaciones antes de enviar.'); return; }
+    alert('✉️ Solicitud de corrección enviada al director.');
+    window.location.href = 'dashboard-tecnico.html';
+  }
+
+  function aprobarCenso() {
+    alert('✅ Censo aprobado y enviado a Jefatura DAE para su validación.');
+    window.location.href = 'dashboard-tecnico.html';
+  }
+
+  (function() {
+    var s = window.SICEN && window.SICEN.obtenerSesion ? window.SICEN.obtenerSesion() : null;
+    if (s) {
+      var nombre = document.querySelector('[data-sesion-nombre]');
+      var avatar = document.querySelector('[data-sesion-avatar]');
+      var rol    = document.querySelector('[data-sesion-rol]');
+      if (nombre) nombre.textContent = s.nombre;
+      if (avatar) { avatar.textContent = s.initials || s.nombre[0]; if (s.color) avatar.style.background = s.color; }
+      if (rol) { var roles={director_ce:'Director CE',tecnico_dae:'Técnico DAE',jefatura_dae:'Jefatura DAE'}; rol.textContent = roles[s.rol]||s.rol; }
+    }
+  })();
+</script>
+</body>
+</html>

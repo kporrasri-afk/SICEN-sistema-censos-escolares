@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Censos — SICEN</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body class="censo-page">
+
+<nav class="censo-topbar">
+  <a href="dashboard-jefatura.html" class="censo-topbar__brand">
+    <div class="censo-topbar__icon">
+      <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+        <rect x="1" y="8.5" width="3.5" height="7" rx="0.7" fill="white"/>
+        <rect x="6.5" y="5" width="3.5" height="10.5" rx="0.7" fill="white"/>
+        <rect x="12" y="1.5" width="3.5" height="14" rx="0.7" fill="white"/>
+      </svg>
+    </div>
+    <div>
+      <div class="censo-topbar__name">SICEN</div>
+      <div class="censo-topbar__sub">Sistema de Censos Escolares</div>
+    </div>
+  </a>
+  <div class="censo-topbar__right">
+    <a href="#" class="censo-topbar__help">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+        <circle cx="7.5" cy="7.5" r="6.5" stroke="rgba(255,255,255,.5)" stroke-width="1.2"/>
+        <path d="M5.8 5.8a1.7 1.7 0 113.1 1c-.4.4-1.4.8-1.4 1.7" stroke="rgba(255,255,255,.5)" stroke-width="1.2" stroke-linecap="round"/>
+        <circle cx="7.5" cy="11" r=".7" fill="rgba(255,255,255,.5)"/>
+      </svg>
+      Ayuda
+    </a>
+    <div class="censo-topbar__user">
+      <div class="censo-topbar__avatar" data-sesion-avatar style="background:#185FA5">MR</div>
+      <div>
+        <div class="censo-topbar__uname" data-sesion-nombre>María Rodríguez</div>
+        <div class="censo-topbar__urole" data-sesion-rol>Jefatura DAE</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="censo-main" style="margin-top:calc(var(--topbar-h) + 1rem)">
+
+  <div class="censo-breadcrumb">
+    <a href="dashboard-jefatura.html">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+        <path d="M8.5 2L4 6.5l4.5 4.5" stroke="#6b7280" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Inicio
+    </a>
+    <span class="censo-breadcrumb__sep">/</span>
+    <span class="censo-breadcrumb__current">Gestión de censos</span>
+  </div>
+
+  <div class="censo-header-row">
+    <div>
+      <h1>Gestión de Censos</h1>
+      <p>Supervisá el avance de los censos en tu circuito y tomá las acciones necesarias.</p>
+    </div>
+    <button class="btn-continuar" style="align-self:flex-start" onclick="nuevoCenso()">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+        <path d="M6.5 1v11M1 6.5h11" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      Nuevo censo
+    </button>
+  </div>
+
+  <!-- Filtros -->
+  <div class="gestion-filtros">
+    <select class="form-select" style="max-width:180px;font-size:.8rem">
+      <option>Todos los estados</option>
+      <option>Pendiente</option>
+      <option>En proceso</option>
+      <option>En revisión</option>
+      <option>Aprobado</option>
+    </select>
+    <select class="form-select" style="max-width:180px;font-size:.8rem">
+      <option>Todos los circuitos</option>
+      <option>Circuito 01</option>
+      <option>Circuito 02</option>
+      <option>Circuito 03</option>
+    </select>
+    <input class="form-input" type="text" placeholder="Buscar centro educativo..." style="max-width:260px;font-size:.8rem"/>
+  </div>
+
+  <!-- Métricas rápidas -->
+  <div class="gestion-metricas">
+    <div class="metrica-card">
+      <div class="metrica-card__num">24</div>
+      <div class="metrica-card__label">Centros asignados</div>
+    </div>
+    <div class="metrica-card metrica-card--green">
+      <div class="metrica-card__num">11</div>
+      <div class="metrica-card__label">Censos aprobados</div>
+    </div>
+    <div class="metrica-card metrica-card--amber">
+      <div class="metrica-card__num">8</div>
+      <div class="metrica-card__label">En revisión</div>
+    </div>
+    <div class="metrica-card metrica-card--red">
+      <div class="metrica-card__num">5</div>
+      <div class="metrica-card__label">Pendientes</div>
+    </div>
+  </div>
+
+  <div class="censo-content">
+    <div>
+      <!-- Tabla de censos -->
+      <div class="form-card" style="padding:0;overflow:hidden">
+        <div style="padding:18px 20px 14px;border-bottom:1px solid #f3f4f6">
+          <p class="form-card__title" style="margin:0">Censos del período 2025</p>
+        </div>
+        <table class="gestion-table">
+          <thead>
+            <tr>
+              <th>Centro educativo</th>
+              <th>Circuito</th>
+              <th>Técnico asignado</th>
+              <th>Estado</th>
+              <th>Última actualización</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="ce-nombre">Escuela República de Chile</span><br><span class="ce-codigo">Cód. 4086</span></td>
+              <td>01</td>
+              <td>Ana Lucía Vargas</td>
+              <td><span class="status-badge status-badge--enviado">Aprobado</span></td>
+              <td>15 mar. 2025</td>
+              <td><a href="detalle-censo-jefatura.html" class="tabla-link">Ver detalle →</a></td>
+            </tr>
+            <tr>
+              <td><span class="ce-nombre">Liceo San José</span><br><span class="ce-codigo">Cód. 1203</span></td>
+              <td>01</td>
+              <td>Ana Lucía Vargas</td>
+              <td><span class="status-badge status-badge--proceso">En revisión</span></td>
+              <td>18 mar. 2025</td>
+              <td><a href="#" class="tabla-link">Ver detalle →</a></td>
+            </tr>
+            <tr>
+              <td><span class="ce-nombre">COVAO</span><br><span class="ce-codigo">Cód. 2100</span></td>
+              <td>02</td>
+              <td>Luis Méndez</td>
+              <td><span class="status-badge status-badge--proceso">En proceso</span></td>
+              <td>20 mar. 2025</td>
+              <td><a href="#" class="tabla-link">Ver detalle →</a></td>
+            </tr>
+            <tr>
+              <td><span class="ce-nombre">Escuela La Merced</span><br><span class="ce-codigo">Cód. 3051</span></td>
+              <td>03</td>
+              <td>Luis Méndez</td>
+              <td><span class="status-badge status-badge--pendiente">Pendiente</span></td>
+              <td>—</td>
+              <td><a href="#" class="tabla-link">Notificar →</a></td>
+            </tr>
+            <tr>
+              <td><span class="ce-nombre">CTP San Francisco</span><br><span class="ce-codigo">Cód. 5412</span></td>
+              <td>02</td>
+              <td>Ana Lucía Vargas</td>
+              <td><span class="status-badge status-badge--enviado">Aprobado</span></td>
+              <td>12 mar. 2025</td>
+              <td><a href="#" class="tabla-link">Ver detalle →</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside>
+      <div class="sidebar-card">
+        <div class="sidebar-card__icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <rect x="2" y="2" width="14" height="14" rx="2" stroke="#185FA5" stroke-width="1.3"/>
+            <path d="M6 9l2 2 4-4" stroke="#185FA5" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="sidebar-card__title">Avance general</p>
+        <p class="sidebar-card__sub">Porcentaje de censos completados en tu circuito.</p>
+        <div class="progreso-bar-wrap">
+          <div class="progreso-bar" style="width:46%"></div>
+        </div>
+        <p style="font-size:.73rem;color:#6b7280;margin-top:6px">11 de 24 censos — 46%</p>
+      </div>
+      <div class="sidebar-card sidebar-card--dark">
+        <div class="sidebar-card__icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <rect x="1.75" y="2.75" width="14.5" height="12.5" rx="1.75" stroke="rgba(255,255,255,.5)" stroke-width="1.3"/>
+            <path d="M5 2.75v-1.5M13 2.75v-1.5M1.75 7h14.5" stroke="rgba(255,255,255,.5)" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="sidebar-card__title">Fecha límite del período</p>
+        <p class="sidebar-card__sub">Todos los censos deben estar aprobados antes de:</p>
+        <p style="font-size:1rem;font-weight:700;color:#fff;margin-top:6px">28 de marzo, 2025</p>
+        <p style="font-size:.73rem;color:rgba(255,255,255,.45);margin-top:2px">8 días restantes</p>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<script src="../js/auth.js"></script>
+<script>
+  function nuevoCenso() {
+    alert('Función disponible en la próxima versión del sistema.');
+  }
+
+  (function() {
+    var s = window.SICEN && window.SICEN.obtenerSesion ? window.SICEN.obtenerSesion() : null;
+    if (s) {
+      var nombre = document.querySelector('[data-sesion-nombre]');
+      var avatar = document.querySelector('[data-sesion-avatar]');
+      var rol    = document.querySelector('[data-sesion-rol]');
+      if (nombre) nombre.textContent = s.nombre;
+      if (avatar) { avatar.textContent = s.initials || s.nombre[0]; if (s.color) avatar.style.background = s.color; }
+      if (rol) { var roles={director_ce:'Director CE',tecnico_dae:'Técnico DAE',jefatura_dae:'Jefatura DAE'}; rol.textContent = roles[s.rol]||s.rol; }
+    }
+  })();
+</script>
+</body>
+</html>
