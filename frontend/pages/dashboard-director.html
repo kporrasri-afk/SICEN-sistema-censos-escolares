@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SICEN — Director CE</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" role="navigation" aria-label="Menú principal">
+
+    <div class="sidebar__logo">
+      <div class="sidebar__logo-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <rect x="1" y="8" width="3" height="6.5" rx="0.6" fill="white"/>
+          <rect x="6" y="5" width="3" height="9.5" rx="0.6" fill="white"/>
+          <rect x="11" y="1.5" width="3" height="13" rx="0.6" fill="white"/>
+        </svg>
+      </div>
+      <div class="sidebar__logo-text">
+        <div class="sidebar__logo-name">SICEN</div>
+        <div class="sidebar__logo-sub">Sistema de Censos</div>
+      </div>
+    </div>
+
+    <!-- Perfil -->
+    <div class="sidebar__profile">
+      <div class="sidebar__profile-label">Mi centro</div>
+      <div class="sidebar__profile-row">
+        <div class="sidebar__profile-icon">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <rect x="1" y="4.5" width="10" height="7" rx="0.8" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
+            <path d="M4 11.5V8.5h4v3" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
+            <path d="M3.5 4.5V3a2.5 2.5 0 015 0v1.5" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <div>
+          <div class="sidebar__profile-name">Esc. República de Chile</div>
+          <div class="sidebar__profile-sub">Código 4086 · Circ. 01</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nav -->
+    <nav class="sidebar__nav">
+      <div class="sidebar__section-label">Mi institución</div>
+
+      <a class="nav-item active" href="#expediente" aria-current="page">
+        <svg class="nav-item__icon" width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <rect x="1.5" y="1.5" width="11" height="11" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M4 5h6M4 7.5h6M4 10h4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <span class="nav-item__label">Expediente institucional</span>
+      </a>
+
+      <a class="nav-item" href="#censos">
+        <svg class="nav-item__icon" width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <rect x="1" y="1" width="5" height="5" rx="1.2" fill="currentColor"/>
+          <rect x="8" y="1" width="5" height="5" rx="1.2" fill="currentColor"/>
+          <rect x="1" y="8" width="5" height="5" rx="1.2" fill="currentColor"/>
+          <rect x="8" y="8" width="5" height="5" rx="1.2" fill="currentColor"/>
+        </svg>
+        <span class="nav-item__label">Mis censos</span>
+        <span class="nav-badge">2</span>
+      </a>
+
+      <a class="nav-item" href="#notificaciones">
+        <svg class="nav-item__icon" width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M7 1.5a4.5 4.5 0 014.5 4.5v3l1.5 1.5H1L2.5 9V6A4.5 4.5 0 017 1.5z" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M5.5 11.5a1.5 1.5 0 003 0" stroke="currentColor" stroke-width="1.3"/>
+        </svg>
+        <span class="nav-item__label">Notificaciones</span>
+        <span class="nav-badge">2</span>
+      </a>
+
+      <div class="sidebar__divider"></div>
+      <div class="sidebar__section-label">Centro educativo</div>
+
+      <a class="nav-item" href="#datos">
+        <svg class="nav-item__icon" width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <rect x="1" y="5" width="12" height="8" rx="1" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M5 13V9h4v4" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M4 5V3h6v2" stroke="currentColor" stroke-width="1.3"/>
+        </svg>
+        <span class="nav-item__label">Datos del centro</span>
+      </a>
+
+      <a class="nav-item" href="#ayuda">
+        <svg class="nav-item__icon" width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M5.5 5.5a1.5 1.5 0 012.9.5c0 1-1.4 1.5-1.4 2.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          <circle cx="7" cy="10.5" r="0.5" fill="currentColor"/>
+        </svg>
+        <span class="nav-item__label">Ayuda y soporte</span>
+      </a>
+    </nav>
+
+    <!-- User footer -->
+    <button class="sidebar__user" data-action="logout" title="Cerrar sesión">
+      <div class="sidebar__avatar" style="background:#854F0B" data-sesion-avatar>CA</div>
+      <div>
+        <div class="sidebar__user-name" data-sesion-nombre>Carlos Alvarado</div>
+        <div class="sidebar__user-role">Director CE</div>
+      </div>
+    </button>
+
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <div class="app-main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="topbar__search">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+          <circle cx="5.5" cy="5.5" r="4" stroke="#9ca3af" stroke-width="1.3"/>
+          <path d="M8.5 8.5l2.5 2.5" stroke="#9ca3af" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        Buscar en mi expediente…
+        <kbd>⌘K</kbd>
+      </div>
+
+      <div style="margin-left:auto;display:flex;align-items:center;gap:8px;">
+
+        <button class="topbar__switch-btn" data-action="cambiar-perfil">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2 6h8M7.5 3.5l3 2.5-3 2.5" stroke="#6b7280" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Cambiar perfil
+        </button>
+
+        <button class="topbar__icon-btn" title="Notificaciones" aria-label="Notificaciones">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 1.5a5 5 0 015 5v3l1.5 1.5H1.5L3 9.5v-3a5 5 0 015-5z" stroke="#6b7280" stroke-width="1.3"/>
+            <path d="M6.5 12.5a1.5 1.5 0 003 0" stroke="#6b7280" stroke-width="1.3"/>
+          </svg>
+          <span class="topbar__dot"></span>
+        </button>
+
+        <div class="topbar__user">
+          <div class="topbar__avatar" style="background:#854F0B" data-sesion-avatar>CA</div>
+          <div>
+            <div class="topbar__user-name" data-sesion-nombre>Carlos Alvarado</div>
+            <div class="topbar__user-role">Director CE</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Contenido -->
+    <main class="page-content" id="expediente">
+
+      <!-- Hero banner -->
+      <div class="hero-banner">
+        <div class="hero-banner__eyebrow">Expediente institucional</div>
+        <h1 class="hero-banner__title">Buenos días, Carlos 👋</h1>
+        <p class="hero-banner__sub">Escuela República de Chile &nbsp;·&nbsp; Código 4086 &nbsp;·&nbsp; Circuito 01 — San José</p>
+        <div class="hero-banner__icon">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+            <rect x="10" y="40" width="100" height="70" rx="4" fill="white"/>
+            <path d="M10 55L60 20l50 35" fill="white"/>
+            <rect x="40" y="80" width="40" height="30" fill="#0d1b3e"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Acción pendiente -->
+      <div class="action-card">
+        <div class="action-card__body">
+          <span class="action-card__badge">⚡ Acción requerida</span>
+          <h2 class="action-card__title">Completá el Censo de Matrícula Inicial 2025</h2>
+          <p class="action-card__desc">
+            El formulario está incompleto. Necesitás completar las secciones de matrícula por grado y
+            datos de infraestructura antes del cierre.
+          </p>
+          <div class="action-card__prog">
+            <div class="prog-bar" style="height:7px">
+              <div class="prog-fill" style="width:67%;background:#854F0B"></div>
+            </div>
+            <span style="font-size:13px;font-weight:700;color:#854F0B">67%</span>
+          </div>
+          <a href="censo-matricula.html" class="btn btn--primary" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px">
+            Continuar formulario
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+              <path d="M2.5 6.5h8M7 3l4 3.5L7 10" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        <div class="action-card__sidebar">
+          <div class="action-card__day">28</div>
+          <div class="action-card__month">MAR</div>
+          <div class="action-card__left">5 días restantes</div>
+        </div>
+      </div>
+
+      <!-- Dos columnas: censos + notificaciones -->
+      <div class="two-col two-col--70-30">
+
+        <!-- Lista de censos -->
+        <div class="card">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+            <div>
+              <p class="card-title">Mis censos asignados</p>
+              <p class="card-sub">Período 2025 · Escuela República de Chile</p>
+            </div>
+            <span class="badge badge--blue">3 censos</span>
+          </div>
+
+          <!-- Mini stats -->
+          <div class="stat-grid stat-grid--3" style="margin-bottom:16px">
+            <div style="text-align:center;background:var(--bg-muted);border-radius:var(--radius);padding:12px">
+              <div style="font-size:22px;font-weight:900;color:var(--text-h)">3</div>
+              <div style="font-size:10px;color:var(--text-muted)">Censos totales</div>
+            </div>
+            <div style="text-align:center;background:var(--bg-muted);border-radius:var(--radius);padding:12px">
+              <div style="font-size:22px;font-weight:900;color:var(--secondary)">1</div>
+              <div style="font-size:10px;color:var(--text-muted)">Aceptado</div>
+            </div>
+            <div style="text-align:center;background:var(--bg-muted);border-radius:var(--radius);padding:12px">
+              <div style="font-size:22px;font-weight:900;color:var(--accent)">2</div>
+              <div style="font-size:10px;color:var(--text-muted)">Notificaciones</div>
+            </div>
+          </div>
+
+          <!-- Censos list -->
+          <div>
+            <div class="censo-item">
+              <div class="censo-item__icon" style="background:#fff8ed">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <rect x="2" y="2" width="12" height="12" rx="1.5" stroke="#854F0B" stroke-width="1.3"/>
+                  <path d="M5 6h6M5 8.5h6M5 11h4" stroke="#854F0B" stroke-width="1.3" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="censo-item__body">
+                <div class="censo-item__name"><a href="censo-matricula.html" style="color:inherit;text-decoration:none">Matrícula Inicial 2025</a></div>
+                <div class="censo-item__desc">67% completado · Vence 28 Mar</div>
+                <div class="prog-bar" style="height:4px;margin-top:5px">
+                  <div class="prog-fill" style="width:67%;background:#854F0B"></div>
+                </div>
+              </div>
+              <div class="censo-item__meta">
+                <span class="badge badge--amber">En proceso</span>
+                <div class="censo-item__date">Actualizado hoy</div>
+              </div>
+            </div>
+
+            <div class="censo-item">
+              <div class="censo-item__icon" style="background:#f0fdf4">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <rect x="2" y="6" width="12" height="9" rx="1" stroke="#0F6E56" stroke-width="1.3"/>
+                  <path d="M6 15V10h4v5" stroke="#0F6E56" stroke-width="1.3"/>
+                  <path d="M5 6V4.5a3 3 0 016 0V6" stroke="#0F6E56" stroke-width="1.3"/>
+                </svg>
+              </div>
+              <div class="censo-item__body">
+                <div class="censo-item__name">Infraestructura Escolar</div>
+                <div class="censo-item__desc">100% completado · Revisado</div>
+                <div class="prog-bar" style="height:4px;margin-top:5px">
+                  <div class="prog-fill" style="width:100%;background:#0F6E56"></div>
+                </div>
+              </div>
+              <div class="censo-item__meta">
+                <span class="badge badge--green">Aceptado</span>
+                <div class="censo-item__date">Mar 14</div>
+              </div>
+            </div>
+
+            <div class="censo-item">
+              <div class="censo-item__icon" style="background:#fef2f2">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <circle cx="8" cy="6" r="3" stroke="#dc2626" stroke-width="1.3"/>
+                  <path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#dc2626" stroke-width="1.3" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="censo-item__body">
+                <div class="censo-item__name">Personal Docente 2025</div>
+                <div class="censo-item__desc">Requiere correcciones indicadas</div>
+                <div class="prog-bar" style="height:4px;margin-top:5px">
+                  <div class="prog-fill" style="width:80%;background:#ef4444"></div>
+                </div>
+              </div>
+              <div class="censo-item__meta">
+                <span class="badge badge--red">Devuelto</span>
+                <div class="censo-item__date">Mar 18</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notificaciones -->
+        <div class="card">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+            <p class="card-title">Notificaciones</p>
+            <span class="badge badge--red">2 nuevas</span>
+          </div>
+
+          <div class="notif-item">
+            <div class="notif-dot" style="background:#ef4444"></div>
+            <div>
+              <div class="notif-title">Formulario devuelto</div>
+              <div class="notif-desc">Personal Docente 2025 requiere correcciones. Revisá las observaciones del técnico.</div>
+              <div class="notif-time">Hoy, 09:15</div>
+            </div>
+          </div>
+
+          <div class="notif-item">
+            <div class="notif-dot" style="background:#f59e0b"></div>
+            <div>
+              <div class="notif-title">Recordatorio de cierre</div>
+              <div class="notif-desc">La Matrícula Inicial 2025 cierra en 5 días. Completá el formulario antes del 28 de marzo.</div>
+              <div class="notif-time">Hoy, 07:00</div>
+            </div>
+          </div>
+
+          <div class="notif-item">
+            <div class="notif-dot" style="background:#0F6E56"></div>
+            <div>
+              <div class="notif-title">Formulario aceptado</div>
+              <div class="notif-desc">Infraestructura Escolar fue aceptado por el Técnico DAE. No se requiere acción.</div>
+              <div class="notif-time">Mar 14</div>
+            </div>
+          </div>
+
+          <button class="btn--link" style="margin-top:8px;display:block">
+            Ver todas las notificaciones →
+          </button>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="../js/auth.js"></script>
+</body>
+</html>
